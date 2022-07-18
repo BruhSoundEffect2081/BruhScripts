@@ -53,10 +53,10 @@ while t do
     repeat task.wait() until #game.Workspace["StarterVillage_RiceStrings"]:GetChildren() >= 5
     for _,v in pairs(game.Workspace["StarterVillage_RiceStrings"]:GetChildren()) do 
         if v.Name ~= "Script" then 
+            v:WaitForChild("Rice_pick_proximity")
             for i = 1,2 do
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
                 wait(1)
-                v:WaitForChild("Rice_pick_proximity")
                 fireproximityprompt(v.Rice_pick_proximity)
             end
         end
