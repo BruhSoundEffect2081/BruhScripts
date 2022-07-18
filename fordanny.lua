@@ -25,8 +25,8 @@ local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))(
 local MainUI = UILibrary.Load("project kys")
 local FirstPage = MainUI.AddPage("Home")
 
-getgenv().t = false 
-FirstPage.AddToggle("Hello", false, function(Value)
+getgenv().t = false
+FirstPage.AddToggle("farm rice", false, function(Value)
 t = Value 
 while t do 
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = sarah.HumanoidRootPart.CFrame
@@ -35,7 +35,7 @@ while t do
         [1] = "AddQuest",
         [2] = "Players."..game.Players.LocalPlayer.Name..".PlayerGui.Npc_Dialogue.LocalScript.Functions",
         [3] = math.huge,
-        [4] = game:GetService("ReplicatedStorage").Player_Data.IamAwesomeLikeOreoz.Quest,
+        [4] = game:GetService("ReplicatedStorage").Player_Data[game.Players.LocalPlayer.Name].Quest,
         [5] = {
             ["Current"] = "Help Sarah pick rice",
             ["List"] = {
@@ -59,5 +59,19 @@ while t do
         end
     end
     wait(15)
+    end
+end)
+
+getgenv().e = false 
+FirstPage.AddToggle("steal money bags", false, function(Value)
+e = Value 
+while e do 
+    task.wait()
+    for _,v in pairs(game.Workspace:GetChildren()) do 
+        if string.find(v.Name, "Money bag") then 
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+            fireproximityprompt(v.take_money_thing)
+        end
+    end
     end
 end)
