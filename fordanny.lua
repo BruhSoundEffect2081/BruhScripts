@@ -50,10 +50,9 @@ while t do
         }
     }
     game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args))
-    repeat task.wait() until #game.Workspace["StarterVillage_RiceStrings"]:GetChildren() >= 5
+    repeat task.wait() until #game.Workspace["StarterVillage_RiceStrings"]:GetChildren() > 4
     for _,v in pairs(game.Workspace["StarterVillage_RiceStrings"]:GetChildren()) do 
         if v.Name ~= "Script" then 
-            v:WaitForChild("Rice_pick_proximity")
             for i = 1,2 do
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
                 wait(1)
