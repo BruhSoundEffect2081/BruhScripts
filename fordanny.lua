@@ -22,7 +22,7 @@ function bruhbuttonfire(whatbutton)
 end
 
 local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
-local MainUI = UILibrary.Load("project kys")
+local MainUI = UILibrary.Load("project kys 1")
 local FirstPage = MainUI.AddPage("Home")
 
 getgenv().t = false
