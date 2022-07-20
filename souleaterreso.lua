@@ -12,7 +12,7 @@ local weaponTab = Window:MakeTab({Name = "weapon stuff",Icon = "rbxassetid://0",
 
 local codes = {"friendly", "powerhouse"}
 
-farm1Tab:AddParagraph("farm 1","devs are being cringe had to add big delay, no longer OP >:( stinky devs.")
+farm1Tab:AddParagraph("farm 1","devs are being cringe had to add big delay, no longer OP >:(")
 
 local w1 = 0.3 
 local w2 = 0.5 
@@ -22,31 +22,37 @@ local o1 = false
 farm1Tab:AddToggle({ Name = "farm 1", Default = false, Callback = function(Value)
     o1 = Value
     while o1 do 
-        repeat
-            task.wait()
-        until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart")
-        local ot1 = {}
-        for _,v in pairs(game.Workspace.radiantNpcs:GetChildren()) do
-            if v:IsA("Model") and v.Name == "heroDelivery" then
-                table.insert(ot1, v)
-            end
-        end
-        local target = ot1[math.random(1,#ot1)]
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.HumanoidRootPart.CFrame
-        game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("openDialogue",{target})
-        wait(w1)
-        game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("heroDelivery",{target})
-        wait(w2)
-        for _,v in pairs(game.Workspace.miscObjects.heroDelivery:GetChildren()) do
-            if v:IsA("Model") and v.Name == "heroDelivery" then
-                if v.inUse.Value == true then
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.zone.CFrame
-                    wait(w1)
-                    game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("heroDeliveryTurnIn",{v.officerCindy})
+        for i = 1,2 do
+            repeat
+                task.wait()
+            until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart")
+            local ot1 = {}
+            for _,v in pairs(game.Workspace.radiantNpcs:GetChildren()) do
+                if v:IsA("Model") and v.Name == "heroDelivery" then
+                    table.insert(ot1, v)
                 end
             end
+            local target = ot1[math.random(1,#ot1)]
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.HumanoidRootPart.CFrame
+            game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("openDialogue",{target})
+            wait(w1)
+            game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("heroDelivery",{target})
+            wait(w2)
+            for _,v in pairs(game.Workspace.miscObjects.heroDelivery:GetChildren()) do
+                if v:IsA("Model") and v.Name == "heroDelivery" then
+                    if v.inUse.Value == true then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.zone.CFrame
+                        wait(w1)
+                        game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("heroDeliveryTurnIn",{v.officerCindy})
+                    end
+                end
+            end
+            wait(1)
         end
-        wait(1)
+        for i = 1,30 do
+            wait(1)
+            print(i)
+        end
     end
 end})
 
@@ -84,17 +90,7 @@ farm1Tab:AddToggle({ Name = "farm 1 old", Default = false, Callback = function(V
     end
 end})
 
-farm1Tab:AddLabel("increase if needed")
-
-farm1Tab:AddSlider({Name = "wait #1",Min = 0.2,Max = 1.3,Default = 0.3,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "seconds",Callback = function(Value)
-	w1 = Value
-end})
-
-farm1Tab:AddSlider({Name = "wait #2",Min = 0.4,Max = 2,Default = 0.5,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "seconds",Callback = function(Value)
-	w2 = Value
-end})
-
-farm2Tab:AddParagraph("FARM 2 INFO","farm 1 is better for leveling max, and farming money. farm 2 is extemely complicated and laggy on low end PC's. in short, farm 2 will auto get quest, tp you to the quest area, kill shit (will click by default, but turn on moves if you have them), and repeat. i reccomend having the yoink all proximityprompts on if you want the souls. farm 2 was made specifically for souls :>")
+farm2Tab:AddParagraph("FARM 2 INFO","farm 2 is extemely complicated and laggy on low end PC's. in short, farm 2 will auto get quest, tp you to the quest area, kill shit (will click by default, but turn on moves if you have them), and repeat. i reccomend having the yoink all proximityprompts on if you want the souls. farm 2 was made specifically for souls :>")
 
 local em = false 
 local rm = false 
