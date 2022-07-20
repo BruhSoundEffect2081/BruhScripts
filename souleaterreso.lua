@@ -55,40 +55,6 @@ farm1Tab:AddToggle({ Name = "farm 1", Default = false, Callback = function(Value
     end
 end})
 
-local ot1O = {}
-local ot2O = {}
-local o1O = false
-farm1Tab:AddToggle({ Name = "farm 1 old", Default = false, Callback = function(Value)
-    o1O = Value
-    while o1O do 
-        repeat
-            task.wait()
-        until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart")
-        local ot1O = {}
-        for _,v in pairs(game.Workspace.radiantNpcs:GetChildren()) do
-            if v:IsA("Model") and v.Name == "vilStealPoint" then
-                table.insert(ot1O, v)
-            end
-        end
-        local targetO = ot1O[math.random(1,#ot1O)]
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetO.HumanoidRootPart.CFrame
-        game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("openDialogue",{targetO})
-        wait(0.2)
-        game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("vilStealPoint",{targetO})
-        wait(0.5)
-        for _,v in pairs(game.Workspace.miscObjects.vilStealPoint:GetChildren()) do
-            if v:IsA("Model") and v.Name == "vilStealPoint" then
-                if v.inUse.Value == true then
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.zone.CFrame
-                    wait(0.2)
-                    game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("vilStealPointTurnIn",{v.case})
-                end
-            end
-        end
-        wait(1)
-    end
-end})
-
 farm2Tab:AddParagraph("FARM 2 INFO","farm 2 is laggy on low end PC's. i reccomend having the yoink all proximityprompts on if you want the souls. farm 2 was made specifically for souls :> also it will automatically equip your weapon/tool/partner")
 
 local em = false 
@@ -235,8 +201,8 @@ Tab:AddButton({Name = "codes",Callback = function()
     end
 end})
 
-Tab:AddButton({Name = "copy discord",Callback = function()
-    setclipboard("https://discord.gg/3ftEV2gEcE")
+Tab:AddButton({Name = "copy discord usr",Callback = function()
+    setclipboard("BruhSoundEffect#2081")
 end})
 
 
@@ -327,7 +293,3 @@ spawn(function()
         local partner = game.Players.LocalPlayer.tempStats.partner.Value
     end
 end)
-
-local ctab = Window:MakeTab({Name = "changes n shit",Icon = "rbxassetid://0",PremiumOnly = false})
-ctab:AddParagraph("V0.4","+changes page \n -added changes page so u can see latest changes")
-ctab:AddParagraph("V0.3","+Fixed Farm2 \n -Fixed Farm2 Find Partner \n -Fixed Farm2 Auto Equip Weapon/Partner")
