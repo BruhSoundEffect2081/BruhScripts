@@ -5,19 +5,20 @@ until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):Fi
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "made by Oreoz/BruhSoundEffect", HidePremium = false, IntroEnabled = false})
 local Tab = Window:MakeTab({Name = "stuff",Icon = "rbxassetid://0",PremiumOnly = false})
+local farm1Tab = Window:MakeTab({Name = "farm 1",Icon = "rbxassetid://0",PremiumOnly = false})
 local farm2Tab = Window:MakeTab({Name = "farm 2",Icon = "rbxassetid://0",PremiumOnly = false})
 local tpTab = Window:MakeTab({Name = "tp stuff",Icon = "rbxassetid://0",PremiumOnly = false})
 local weaponTab = Window:MakeTab({Name = "weapon stuff",Icon = "rbxassetid://0",PremiumOnly = false})
 
 local codes = {"friendly","powerhouse"}
 
-Tab:AddParagraph("FARM 1 INFO","farm 1 is better for leveling and farming money (max lvl in under 30 mins, and hundreds of thousands of yen per hour). read farm 2 info about farm 2")
+farm1Tab:AddParagraph("FARM 1 INFO","farm 1 is better for leveling and farming money (max lvl in under 30 mins, and hundreds of thousands of yen per hour). read farm 2 info about farm 2")
 
 
 local ot1 = {}
 local ot2 = {}
 local o1 = false
-Tab:AddToggle({ Name = "farm 1", Default = false, Callback = function(Value)
+farm1Tab:AddToggle({ Name = "farm 1", Default = false, Callback = function(Value)
     o1 = Value
     while o1 do 
         repeat
