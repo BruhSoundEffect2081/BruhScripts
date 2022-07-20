@@ -194,6 +194,11 @@ Tab:AddButton({Name = "codes",Callback = function()
     end
 end})
 
+Tab:AddButton({Name = "copy discord",Callback = function()
+    setclipboard("https://discord.gg/3ftEV2gEcE")
+end})
+
+
 Tab:AddParagraph("yoink","use yoink all with farm 2 if you want souls")
 getgenv().soult2 = false
 Tab:AddToggle({ Name = "yoink all proximity prompts nearby", Default = false, Callback = function(Value)
