@@ -39,7 +39,7 @@ local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
 local Window = Library:CreateWindow({
-	Title = 'Mic Up | SpritzSploit | BruhSoundEffect#2081',
+	Title = 'Mic Up | BruhSoundEffect#2081',
 	Center = true, 
 	AutoShow = true,
 })
