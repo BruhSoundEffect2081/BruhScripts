@@ -165,7 +165,7 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
     end
 end})
 
-farm2Tab:AddToggle({ Name = "chaos mode (NO RANDOMNESS)", Default = false, Callback = function(Value)
+farm2Tab:AddToggle({ Name = "chaos mode (spams moves)", Default = false, Callback = function(Value)
 chaosmode = Value
 end})
 
