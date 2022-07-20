@@ -10,8 +10,90 @@ local farm2Tab = Window:MakeTab({Name = "farm 2",Icon = "rbxassetid://0",Premium
 local tpTab = Window:MakeTab({Name = "tp stuff",Icon = "rbxassetid://0",PremiumOnly = false})
 local weaponTab = Window:MakeTab({Name = "weapon stuff",Icon = "rbxassetid://0",PremiumOnly = false})
 
-local codes = {"friendly","powerhouse"}
-farm1Tab:AddLabel("fixing/reworking farm 1, shitty devs patched it 3 hours after i first relased this LMAOOO")
+local codes = {"friendly", "powerhouse"}
+
+farm1Tab:AddParagraph("farm 1","devs are being cringe had to add big delay, no longer OP >:( kys devs <3")
+
+local w1 = 0.3 
+local w2 = 0.5 
+local ot1 = {}
+local ot2 = {}
+local o1 = false
+farm1Tab:AddToggle({ Name = "farm 1", Default = false, Callback = function(Value)
+    o1 = Value
+    while o1 do 
+        repeat
+            task.wait()
+        until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart")
+        local ot1 = {}
+        for _,v in pairs(game.Workspace.radiantNpcs:GetChildren()) do
+            if v:IsA("Model") and v.Name == "heroDelivery" then
+                table.insert(ot1, v)
+            end
+        end
+        local target = ot1[math.random(1,#ot1)]
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.HumanoidRootPart.CFrame
+        game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("openDialogue",{target})
+        wait(w1)
+        game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("heroDelivery",{target})
+        wait(w2)
+        for _,v in pairs(game.Workspace.miscObjects.heroDelivery:GetChildren()) do
+            if v:IsA("Model") and v.Name == "heroDelivery" then
+                if v.inUse.Value == true then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.zone.CFrame
+                    wait(w1)
+                    game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("heroDeliveryTurnIn",{v.officerCindy})
+                end
+            end
+        end
+        wait(1)
+    end
+end})
+
+local ot1O = {}
+local ot2O = {}
+local o1O = false
+farm1Tab:AddToggle({ Name = "farm 1 old", Default = false, Callback = function(Value)
+    o1O = Value
+    while o1O do 
+        repeat
+            task.wait()
+        until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart")
+        local ot1O = {}
+        for _,v in pairs(game.Workspace.radiantNpcs:GetChildren()) do
+            if v:IsA("Model") and v.Name == "vilStealPoint" then
+                table.insert(ot1O, v)
+            end
+        end
+        local targetO = ot1O[math.random(1,#ot1O)]
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetO.HumanoidRootPart.CFrame
+        game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("openDialogue",{targetO})
+        wait(0.2)
+        game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("vilStealPoint",{targetO})
+        wait(0.5)
+        for _,v in pairs(game.Workspace.miscObjects.vilStealPoint:GetChildren()) do
+            if v:IsA("Model") and v.Name == "vilStealPoint" then
+                if v.inUse.Value == true then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.zone.CFrame
+                    wait(0.2)
+                    game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("vilStealPointTurnIn",{v.case})
+                end
+            end
+        end
+        wait(1)
+    end
+end})
+
+farm1Tab:AddLabel("increase if needed")
+
+farm1Tab:AddSlider({Name = "wait #1",Min = 0.2,Max = 1.3,Default = 0.3,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "seconds",Callback = function(Value)
+	w1 = Value
+end})
+
+farm1Tab:AddSlider({Name = "wait #2",Min = 0.4,Max = 2,Default = 0.5,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "seconds",Callback = function(Value)
+	w2 = Value
+end})
+
 farm2Tab:AddParagraph("FARM 2 INFO","farm 1 is better for leveling max, and farming money. farm 2 is extemely complicated and laggy on low end PC's. in short, farm 2 will auto get quest, tp you to the quest area, kill shit (will click by default, but turn on moves if you have them), and repeat. i reccomend having the yoink all proximityprompts on if you want the souls. farm 2 was made specifically for souls :>")
 
 local em = false 
