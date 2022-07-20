@@ -194,8 +194,8 @@ Tab:AddButton({Name = "codes",Callback = function()
     end
 end})
 
-Tab:AddButton({Name = "copy discord",Callback = function()
-    setclipboard("https://discord.gg/3ftEV2gEcE")
+Tab:AddButton({Name = "copy discord user",Callback = function()
+    setclipboard("BruhSoundEffect#2081 (im not making a discord server its pointless)")
 end})
 
 
