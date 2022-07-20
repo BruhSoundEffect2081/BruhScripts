@@ -9,7 +9,6 @@ local farm1Tab = Window:MakeTab({Name = "farm 1",Icon = "rbxassetid://0",Premium
 local farm2Tab = Window:MakeTab({Name = "farm 2",Icon = "rbxassetid://0",PremiumOnly = false})
 local tpTab = Window:MakeTab({Name = "tp stuff",Icon = "rbxassetid://0",PremiumOnly = false})
 local weaponTab = Window:MakeTab({Name = "weapon stuff",Icon = "rbxassetid://0",PremiumOnly = false})
-
 local codes = {"friendly", "powerhouse"}
 
 farm1Tab:AddParagraph("farm 1","dno longer OP >:( cause devs fixed, farm2 > farm1")
@@ -328,3 +327,7 @@ spawn(function()
         local partner = game.Players.LocalPlayer.tempStats.partner.Value
     end
 end)
+
+local ctab = Window:MakeTab({Name = "changes n shit",Icon = "rbxassetid://0",PremiumOnly = false})
+ctab:AddParagraph("V0.4","+changes page \n -added changes page so u can see latest changes")
+ctab:AddParagraph("V0.3","+Fixed Farm2 \n -Fixed Farm2 Find Partner \n -Fixed Farm2 Auto Equip Weapon/Partner")
