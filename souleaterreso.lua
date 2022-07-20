@@ -113,7 +113,7 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
                     if chaosmode then
                         game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("useSkill",{"skill1"})
                     else
-                        if math.random(1,5) == 5 then
+                        if math.random(1,3) == 3 then
                             game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("useSkill",{"skill1"})
                         end
                     end
@@ -122,7 +122,7 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
                     if chaosmode then
                         game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("useSkill",{"skill2"})
                     else
-                        if math.random(1,5) == 5 then
+                        if math.random(1,3) == 3 then
                             game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("useSkill",{"skill2"})
                         end
                     end
@@ -131,7 +131,7 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
                     if chaosmode then
                         game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("useSkill",{"skill3"})
                     else
-                        if math.random(1,5) == 5 then
+                        if math.random(1,3) == 3 then
                             game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("useSkill",{"skill3"})
                         end
                     end
@@ -140,18 +140,16 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
                     if chaosmode then
                     game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("useSkill",{"skill4"})
                     else    
-                        if math.random(1,5) == 5 then
+                        if math.random(1,3) == 3 then
                             game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("useSkill",{"skill4"})
                         end
                     end
                 end
                 if tm then
                     if chaosmode then
-                        wait(0.5)
                         game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("useSkill",{"skill5"})
                     else
-                        if math.random(1,5) == 5 then
-                            wait(0.5)
+                        if math.random(1,3) == 3 then
                             game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("useSkill",{"skill5"})
                         end
                     end
