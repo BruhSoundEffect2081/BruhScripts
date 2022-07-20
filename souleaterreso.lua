@@ -12,7 +12,7 @@ local weaponTab = Window:MakeTab({Name = "weapon stuff",Icon = "rbxassetid://0",
 
 local codes = {"friendly", "powerhouse"}
 
-farm1Tab:AddParagraph("farm 1","devs are being cringe had to add big delay, no longer OP >:(")
+farm1Tab:AddParagraph("farm 1","dno longer OP >:( cause devs fixed, farm2 > farm1")
 
 local w1 = 0.3 
 local w2 = 0.5 
@@ -90,7 +90,7 @@ farm1Tab:AddToggle({ Name = "farm 1 old", Default = false, Callback = function(V
     end
 end})
 
-farm2Tab:AddParagraph("FARM 2 INFO","farm 2 is extemely complicated and laggy on low end PC's. in short, farm 2 will auto get quest, tp you to the quest area, kill shit (will click by default, but turn on moves if you have them), and repeat. i reccomend having the yoink all proximityprompts on if you want the souls. farm 2 was made specifically for souls :>")
+farm2Tab:AddParagraph("FARM 2 INFO","farm 2 is laggy on low end PC's. i reccomend having the yoink all proximityprompts on if you want the souls. farm 2 was made specifically for souls :> also it will automatically equip your weapon/tool/partner")
 
 local em = false 
 local rm = false 
@@ -135,7 +135,9 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
             until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart") and game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("Humanoid") or not game.Players.LocalPlayer.PlayerGui.ScreenGui.questMsg.Visible
             repeat
                 wait(1)
-                game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("togglePartner")
+                if not game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChildWhichIsA("Tool") then
+                    game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("togglePartner")
+                end
             until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChildWhichIsA("Tool")
             mf = false
             realtarget2 = nil
@@ -323,8 +325,6 @@ end})
 
 spawn(function()
     while wait() do
-        if game.Players.LocalPlayer.tempStats.partner.Value ~= nil then
-            local partner = game.Players.LocalPlayer.tempStats.partner.Value
-        end
+        local partner = game.Players.LocalPlayer.tempStats.partner.Value
     end
 end)
