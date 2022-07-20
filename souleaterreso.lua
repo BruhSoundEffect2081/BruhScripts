@@ -12,7 +12,7 @@ local weaponTab = Window:MakeTab({Name = "weapon stuff",Icon = "rbxassetid://0",
 
 local codes = {"friendly", "powerhouse"}
 
-farm1Tab:AddParagraph("farm 1","devs are being cringe had to add big delay, no longer OP >:( kys devs <3")
+farm1Tab:AddParagraph("farm 1","devs are being cringe had to add big delay, no longer OP >:( stinky devs.")
 
 local w1 = 0.3 
 local w2 = 0.5 
