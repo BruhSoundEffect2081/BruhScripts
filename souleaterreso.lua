@@ -14,7 +14,9 @@ local codes = {"friendly","powerhouse"}
 
 farm1Tab:AddParagraph("FARM 1 INFO","farm 1 is better for leveling and farming money (max lvl in under 30 mins, and hundreds of thousands of yen per hour). read farm 2 info about farm 2")
 
-
+local w1 = 0.2 
+local w2 = 0.5 
+local w3 = 1
 local ot1 = {}
 local ot2 = {}
 local o1 = false
@@ -33,14 +35,14 @@ farm1Tab:AddToggle({ Name = "farm 1", Default = false, Callback = function(Value
         local target = ot1[math.random(1,#ot1)]
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.HumanoidRootPart.CFrame
         game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("openDialogue",{target})
-        wait(0.2)
+        wait(w1)
         game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("vilStealPoint",{target})
-        wait(0.5)
+        wait(w2)
         for _,v in pairs(game.Workspace.miscObjects.vilStealPoint:GetChildren()) do
             if v:IsA("Model") and v.Name == "vilStealPoint" then
                 if v.inUse.Value == true then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.zone.CFrame
-                    wait(0.2)
+                    wait(w1)
                     game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("vilStealPointTurnIn",{v.case})
                 end
             end
@@ -49,6 +51,15 @@ farm1Tab:AddToggle({ Name = "farm 1", Default = false, Callback = function(Value
     end
 end})
 
+farm1Tab:AddLabel("increase these if shit breaks")
+
+farm1Tab:AddSlider({Name = "wait #1",Min = 0.2,Max = 1.3,Default = 0.2,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "seconds",Callback = function(Value)
+	w1 = Value
+end})
+
+farm1Tab:AddSlider({Name = "wait #2",Min = 0.5,Max = 2,Default = 0.5,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "seconds",Callback = function(Value)
+	w2 = Value
+end})
 
 farm2Tab:AddParagraph("FARM 2 INFO","farm 1 is better for leveling max, and farming money. farm 2 is extemely complicated and laggy on low end PC's. in short, farm 2 will auto get quest, tp you to the quest area, kill shit (will click by default, but turn on moves if you have them), and repeat. i reccomend having the yoink all proximityprompts on if you want the souls. farm 2 was made specifically for souls :>")
 
@@ -194,8 +205,8 @@ Tab:AddButton({Name = "codes",Callback = function()
     end
 end})
 
-Tab:AddButton({Name = "copy discord user",Callback = function()
-    setclipboard("BruhSoundEffect#2081 (im not making a discord server its pointless)")
+Tab:AddButton({Name = "copy discord",Callback = function()
+    setclipboard("https://discord.gg/3ftEV2gEcE")
 end})
 
 
