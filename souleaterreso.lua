@@ -9,7 +9,7 @@ local farm1Tab = Window:MakeTab({Name = "farm 1",Icon = "rbxassetid://0",Premium
 local farm2Tab = Window:MakeTab({Name = "farm 2",Icon = "rbxassetid://0",PremiumOnly = false})
 local tpTab = Window:MakeTab({Name = "tp stuff",Icon = "rbxassetid://0",PremiumOnly = false})
 local weaponTab = Window:MakeTab({Name = "weapon stuff",Icon = "rbxassetid://0",PremiumOnly = false})
-local codes = {"friendly", "powerhouse"}
+local codes = {"friendly", "powerhouse","bestfriend"}
 
 farm1Tab:AddParagraph("farm 1","dno longer OP >:( cause devs fixed, farm2 > farm1")
 
@@ -195,7 +195,7 @@ farm2Tab:AddToggle({ Name = "t move", Default = false, Callback = function(Value
 tm = Value
 end})
 
-Tab:AddButton({Name = "codes",Callback = function()
+Tab:AddButton({Name = "codes (new code)",Callback = function()
     for i = 1,#codes do
         game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("codeEnter",{codes[i]})
     end
