@@ -96,12 +96,18 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
         wait(0.4)
         repeat
             repeat
-                task.wait()
-            until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart") and game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("Humanoid") or not game.Players.LocalPlayer.PlayerGui.ScreenGui.questMsg.Visible
-            repeat
                 wait(1)
+                game.Workspace.characters:WaitForChild(game.Players.LocalPlayer.Name)
+                repeat
+                    task.wait()
+                until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name) and game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart") and game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("Humanoid") or not game.Players.LocalPlayer.PlayerGui.ScreenGui.questMsg.Visible
                 if not game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChildWhichIsA("Tool") then
                     game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("togglePartner")
+                end
+                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v:IsA("Tool") then
+                        v.Parent = game.Players.LocalPlayer.Character
+                    end
                 end
             until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChildWhichIsA("Tool")
             mf = false
@@ -113,9 +119,6 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
             end
             if realtarget2 ~= nil then
                 game.Workspace.characters:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart")
-                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    v.Parent = game.Players.LocalPlayer.Character
-                end
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = realtarget2.HumanoidRootPart.CFrame * CFrame.new(0,0,4)
                 if em then
                     if chaosmode then
