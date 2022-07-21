@@ -3,7 +3,7 @@ repeat
 until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart")
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "made by Oreoz/BruhSoundEffect", HidePremium = false, IntroEnabled = false})
+local Window = OrionLib:MakeWindow({Name = "made by Oreoz aka BruhSoundEffect", HidePremium = false, IntroEnabled = false})
 local Tab = Window:MakeTab({Name = "stuff",Icon = "rbxassetid://0",PremiumOnly = false})
 local farm1Tab = Window:MakeTab({Name = "farm 1",Icon = "rbxassetid://0",PremiumOnly = false})
 local farm2Tab = Window:MakeTab({Name = "farm 2",Icon = "rbxassetid://0",PremiumOnly = false})
@@ -11,7 +11,7 @@ local tpTab = Window:MakeTab({Name = "tp stuff",Icon = "rbxassetid://0",PremiumO
 local weaponTab = Window:MakeTab({Name = "weapon stuff",Icon = "rbxassetid://0",PremiumOnly = false})
 local codes = {"friendly", "powerhouse","bestfriend"}
 
-farm1Tab:AddParagraph("farm 1","dno longer OP >:( cause devs fixed, farm2 > farm1")
+farm1Tab:AddParagraph("farm 1","dno longer OP >:( 45 sec delay (jesus fucking christ) after it finished, then itll loop the game just updated a shit ton of delay between quests so it needs a large delay)")
 
 local w1 = 0.3 
 local w2 = 0.5 
@@ -48,14 +48,14 @@ farm1Tab:AddToggle({ Name = "farm 1", Default = false, Callback = function(Value
             end
             wait(1)
         end
-        for i = 1,30 do
+        for i = 1,45 do
             wait(1)
             print(i)
         end
     end
 end})
 
-farm2Tab:AddParagraph("FARM 2 INFO","farm 2 is laggy on low end PC's. i reccomend having the yoink all proximityprompts on if you want the souls. farm 2 was made specifically for souls :> also it will automatically equip your weapon/tool/partner")
+farm2Tab:AddParagraph("FARM 2 INFO","farm 2 is laggy on low end PC's. i reccomend having the yoink all proximityprompts on if you want the souls. farm 2 was made specifically for souls :> also it will automatically equip your weapon/tool/partner. side note#1 - put points into hp/strength mainly, then use reset code at max for whatever you want")
 
 local em = false 
 local rm = false 
@@ -95,6 +95,7 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
         until inusesecurepointfound or not game.Players.LocalPlayer.PlayerGui.ScreenGui.questMsg.Visible
         wait(0.4)
         repeat
+            wait(1)
             repeat
                 wait(1)
                 game.Workspace.characters:WaitForChild(game.Players.LocalPlayer.Name)
@@ -103,6 +104,7 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
                 until game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name) and game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart") and game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("Humanoid") or not game.Players.LocalPlayer.PlayerGui.ScreenGui.questMsg.Visible
                 if not game.Workspace.characters:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChildWhichIsA("Tool") then
                     game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("togglePartner")
+                    wait(1)
                 end
                 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                     if v:IsA("Tool") then
@@ -168,7 +170,6 @@ farm2Tab:AddToggle({ Name = "farm 2", Default = false, Callback = function(Value
                 game:GetService("ReplicatedStorage").remotes.remoteEvent:FireServer("melee",{false})
                 wait()
             end
-            wait()
         until not game.Players.LocalPlayer.PlayerGui.ScreenGui.questMsg.Visible
         wait()
     end
